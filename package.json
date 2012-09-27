@@ -1,0 +1,9 @@
+{
+    "name" : "grunt-imageNormalize",
+    "description" : "Grunt task to normalize images into a preset size",
+    "version": "0.1.0",
+    "main": "grunt.js",
+    "dependencies": {
+        "grunt": "0.3.x"
+    }
+}
