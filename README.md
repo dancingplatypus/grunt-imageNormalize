@@ -5,6 +5,10 @@
 
 Inside your `grunt.js` file add a section named `imageNormalize`. This section specifies images to normalize and the size of those images.
 
+#### Pre-requisites
+
+You will need to have GraphicsMagick installed and available in your path
+
 #### Parameters
 
 ##### files ```object```
