@@ -1,9 +1,28 @@
 {
-    "name" : "grunt-imageNormalize",
+    "name" : "platypus-grunt-image-normalize",
+    "version": "0.1.2",
     "description" : "Grunt task to normalize images into a preset size",
-    "version": "0.1.0",
     "main": "grunt.js",
+
+    "keywords" : [ "grunt", "image", "normalize", "build" ],
+    "bugs" : {
+        "url" : "http://github.com/dancingplatypus/grunt-imageNormalize/issues",
+        "email" : "dancingplatypus@gmail.com"
+    },
     "dependencies": {
-        "grunt": "0.3.x"
+        "coffee-script": "~1.3.3",
+        "grunt-contrib-lib": "~0.2.0"
+    },
+    "devDependencies": {
+        "grunt": "~0.3.15",
+        "grunt-contrib-clean" : "~0.2.0",
+        "coffee-script" : "~1.3.3"
+    },
+    "author" : "Michael Hays <dancingplatypus@gmail.com> (http://github.com/dancingplatypus/)",
+    "engines": { "node": "*" },
+
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/dancingplatypus/grunt-imageNormalize.git"
     }
 }
