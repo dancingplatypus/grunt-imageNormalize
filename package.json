@@ -1,6 +1,6 @@
 {
     "name" : "platypus-grunt-image-normalize",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description" : "Grunt task to normalize images into a preset size",
     "main": "grunt.js",
 

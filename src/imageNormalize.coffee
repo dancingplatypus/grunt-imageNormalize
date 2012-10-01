@@ -52,7 +52,11 @@ module.exports = (grunt) ->
     # this makes sure the directory structure is built
     grunt.file.write dest, ""
 
-    gm(src)
+    # use a stream so that we can modify an image in place, otherwise
+    # gm is going to clobber it
+    stream = fs.createReadStream src
+
+    gm(stream)
       .resize(options.width, options.height)
       .gravity('Center')
       .background('#000000FF')

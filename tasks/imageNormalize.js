@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     }
   });
   return grunt.registerHelper('norm-image', function(src, destPath, callback, options) {
-    var dest, dirname, fs, gm;
+    var dest, dirname, fs, gm, stream;
     gm = require('gm');
     fs = require('fs');
     options = options || {};
@@ -42,7 +42,8 @@ module.exports = function(grunt) {
     }
     dest = path.join(destPath, path.basename(src));
     grunt.file.write(dest, "");
-    return gm(src).resize(options.width, options.height).gravity('Center').background('#000000FF').extent(options.width, options.height).write(dest, function(err) {
+    stream = fs.createReadStream(src);
+    return gm(stream).resize(options.width, options.height).gravity('Center').background('#000000FF').extent(options.width, options.height).write(dest, function(err) {
       if (!err) {
         grunt.log.writeln("resized " + src + " to " + options.width + "x" + options.height);
       } else {

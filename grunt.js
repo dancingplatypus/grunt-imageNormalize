@@ -3,6 +3,12 @@ module.exports = function(grunt) {
     grunt.initConfig({
         clean: { build: ["lib/"], test: ["test_output/"] },
 
+        copy: {
+            test: { files: {
+                "test_output/" : "test/**"
+            }, options: { basePath: "test" }}
+        },
+
         coffee: {
             tasks: {
                 src: ['src/**/*.coffee'],
@@ -32,6 +38,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-coffee');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Load local tasks.
     grunt.loadTasks('tasks');
@@ -39,6 +46,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', "clean:build coffee");
 
     // I solemnly swear to learn how to write test code for javascript and grunt
-    grunt.registerTask('test', "default clean:test imageNormalize:test");
+    grunt.registerTask('test', "default clean:test copy imageNormalize:test");
 
 }
