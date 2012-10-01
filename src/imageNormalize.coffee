@@ -14,8 +14,15 @@ module.exports = (grunt) ->
 
     files = grunt.file.expandFiles @file.src
     count = files.length
+
+    if count == 0
+      grunt.log.writeln "no files to process".red
+      cb()
+      return true
+
+    grunt.log.writeln ("processing " + count + " file(s)").cyan
+
     files.forEach (fp) ->
-      grunt.log.writeln "resizing " + fp
       grunt.helper 'norm-image', fp, dest,
         () ->
             count = count - 1
@@ -63,7 +70,7 @@ module.exports = (grunt) ->
       .extent(options.width, options.height)
       .write(dest, (err) ->
         if !err
-          grunt.log.writeln "resized " + src + " to " + options.width + "x" + options.height
+          grunt.log.writeln ("resized " + src + " to ").green + (options.width + "x" + options.height).yellow
         else
           console.log err
           grunt.warn "unable to resize " + src

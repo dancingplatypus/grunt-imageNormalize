@@ -22,8 +22,8 @@ module.exports = function(grunt) {
         },
 
         imageNormalize: {
-            test: {
-                src: ['test/**/*.png'],
+            test_small: {
+                src: ['test/**/*-s.png'],
                 dest: 'test_output/',
                 options: {
                     height: 128,
@@ -31,7 +31,29 @@ module.exports = function(grunt) {
                     preserve_dirs: true,
                     base_path: 'test'
                 }
+            },
+            test_med: {
+                src: ['test/**/*-m.png'],
+                dest: 'test_output/',
+                options: {
+                    height: 256,
+                    width: 256,
+                    preserve_dirs: true,
+                    base_path: 'test'
+                }
+            },
+            test_large: {
+                src: ['test/**/*-l.png'],
+                dest: 'test_output/',
+                options: {
+                    height: 512,
+                    width: 512,
+                    preserve_dirs: true,
+                    base_path: 'test'
+                }
             }
+
+
         }
 
     });
@@ -46,6 +68,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', "clean:build coffee");
 
     // I solemnly swear to learn how to write test code for javascript and grunt
-    grunt.registerTask('test', "default clean:test copy imageNormalize:test");
+    grunt.registerTask('test', "default clean:test copy imageNormalize");
 
 }
