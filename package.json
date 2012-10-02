@@ -1,10 +1,10 @@
 {
     "name" : "grunt-image-normalize",
-    "version": "0.1.7",
+    "version": "0.1.7.1",
     "description" : "Grunt task to normalize images into a preset size",
     "main": "grunt.js",
 
-    "keywords" : [ "grunt", "image", "normalize", "build" ],
+    "keywords" : [ "grunt", "image", "normalize", "build", "gruntplugin" ],
     "bugs" : {
         "url" : "http://github.com/dancingplatypus/grunt-imageNormalize/issues",
         "email" : "dancingplatypus@gmail.com"
