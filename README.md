@@ -1,4 +1,4 @@
-# platypus-grunt-image-normalize
+# grunt-image-normalize
 > Normalize images to some predetermined height and width (https://github.com/dancingplatypus/grunt-imageNormalize).
 
 ### Overview
