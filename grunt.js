@@ -23,17 +23,17 @@ module.exports = function(grunt) {
 
         imageNormalize: {
             test_small: {
-                src: ['test/**/*-s.png'],
+                src: ['test_output/**/*-s.png'],
                 dest: 'test_output/',
                 options: {
                     height: 128,
                     width: 128,
                     preserve_dirs: true,
-                    base_path: 'test'
+                    base_path: 'test_output'
                 }
             },
             test_med: {
-                src: ['test/**/*-m.png'],
+                src: ['test_output/**/*-m.png'],
                 dest: 'test_output/',
                 options: {
                     height: 256,
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
                 }
             },
             test_large: {
-                src: ['test/**/*-l.png'],
+                src: ['test_output/**/*-l.png'],
                 dest: 'test_output/',
                 options: {
                     height: 512,

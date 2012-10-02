@@ -56,21 +56,21 @@ module.exports = (grunt) ->
     else if !destPath
       destPath = path.dirname src
 
+    dest_temp = path.join destPath, "temp." + path.basename(src)
     dest = path.join destPath, path.basename(src)
 
     # this makes sure the directory structure is built
-    grunt.file.write dest, ""
+    grunt.file.write dest_temp, ""
 
-    # use a stream so that we can modify an image in place, otherwise
-    # gm is going to clobber it
-    stream = fs.createReadStream src
-
-    gm(stream)
+    result = gm(src)
       .resize(options.width, options.height)
       .gravity('Center')
       .background('#000000FF')
       .extent(options.width, options.height)
       .write(dest, (err) ->
+
+        fs.unlinkSync dest_temp
+
         if !err
           grunt.log.writeln ("resized " + src + " to ").green + (options.width + "x" + options.height).yellow
         else
