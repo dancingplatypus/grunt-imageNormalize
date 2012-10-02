@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     }
     grunt.log.writeln(("processing " + count + " file(s)").cyan);
     files.forEach(function(fp) {
-      grunt.log.write("resizing " + fp + " to " + (options.width + "x" + options.height).yellow + "...");
+      grunt.log.writeln("resizing " + fp + " to " + (options.width + "x" + options.height).yellow + "...");
       return grunt.helper('norm-image', fp, dest, function() {
         count = count - 1;
         if (count === 0) {
@@ -51,9 +51,9 @@ module.exports = function(grunt) {
     stream = fs.createReadStream(src);
     return gm(stream).resize(options.width, options.height).gravity('Center').background('#000000FF').extent(options.width, options.height).write(dest, function(err) {
       if (!err) {
-        grunt.log.writeln("Done!".green);
+        grunt.log.writeln(("resized " + src + " to ").green + (options.width + "x" + options.height).yellow);
       } else {
-        grunt.log.writeln("Error!".red);
+        grunt.log.writeln(("Error resizing " + src).red);
         console.log(err);
         grunt.warn("unable to resize " + src);
       }
