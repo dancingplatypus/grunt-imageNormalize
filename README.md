@@ -51,7 +51,7 @@ imageNormalize: {
       baseDirectory: "src"
     },
     src: [
-        "src/images/**/*.png": "
+        "src/images/**/*.png": ""
     ],
     dest: "public/images"
   }
